@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.helloworld.mapper.DemoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.helloworld.entity.Content">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="page_view" property="page_view"/>
+        <result column="Isdelete" property="Isdelete"/>
+        <result column="issuer" property="issuer"/>
+        <result column="newstime" property="newstime"/>
+        <result column="state" property="state"/>
+        <result column="reporter" property="reporter"/>
+        <result column="iftopline" property="iftopline"/>
+        <result column="column_id" property="column_id"/>
+        <result column="site_id" property="site_id"/>
+        <result column="content" property="content"/>
+        <result column="small_title" property="small_title"/>
+        <result column="operate_time" property="operate_time"/>
+
+
+    </resultMap>
+
+
+
+
+</mapper>
