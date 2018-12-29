@@ -2,11 +2,7 @@ package com.lyl.helloworld.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.lyl.helloworld.entity.Content;
-import com.lyl.helloworld.entity.User;
-import com.lyl.helloworld.mapper.DemoMapper;
-import com.lyl.helloworld.service.UserService;
 import com.lyl.helloworld.service.impl.IDemoService;
-import com.lyl.helloworld.service.impl.UserServiceImpl;
 import com.lyl.helloworld.util.RedisUtil;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -20,7 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @RestController
 public class DemoController {
-    private final static Logger logger = LoggerFactory.getLogger(DemoController.class);
+
+    protected Logger logger =  LoggerFactory.getLogger(this.getClass());
     @Autowired
     IDemoService demoService;
 
@@ -53,15 +50,7 @@ public class DemoController {
 }
     }
 
-    @RequestMapping("/setValue1")
-    public boolean setValue1(){
-        return new RedisUtil().set("abc","我是你爸爸");
-    }
-    @RequestMapping("/getValue1")
-    public String getValue2(){
-        String a = (String) new RedisUtil().get("abc");
-        return a;
-    }
+
 
     @RequestMapping("/getValue")
     public String getValue(){
@@ -72,6 +61,19 @@ public class DemoController {
             String shabao = template.opsForValue().get("shabao");//根据key获取缓存中的val
             return "获取到缓存中的数据：shabao="+shabao;
         }
+    }
+
+
+
+
+    @RequestMapping("/setValue2")
+    public boolean setValue2(){
+        return new RedisUtil().set("abc","我是你爸爸");
+    }
+    @RequestMapping("/getValue2")
+    public String getValue2(){
+        String a = (String) new RedisUtil().get("abc");
+        return a;
     }
 
 }

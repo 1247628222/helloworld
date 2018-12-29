@@ -28,7 +28,7 @@ import java.util.List;
 @ControllerAdvice
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
-    private final static Logger logger = LoggerFactory.getLogger(WebConfig.class);
+    protected Logger logger =  LoggerFactory.getLogger(this.getClass());
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);

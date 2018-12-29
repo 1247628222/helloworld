@@ -63,7 +63,7 @@ public class MybatisPlusConfig {
     }
 
 
-    /*
+/*
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
 
@@ -77,7 +77,7 @@ public class MybatisPlusConfig {
 
         return sqlSessionFactoryBean.getObject();
     }
-    */
+*/
 
 
 

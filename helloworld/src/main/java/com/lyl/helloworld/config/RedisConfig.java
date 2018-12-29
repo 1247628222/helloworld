@@ -20,7 +20,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * redis配置
- * @author pangjianhui
+ * @author liuyulei
  *
  */
 @Configuration

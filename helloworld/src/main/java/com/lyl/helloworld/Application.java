@@ -12,7 +12,6 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@EnableCaching
 
 public class Application {
 
