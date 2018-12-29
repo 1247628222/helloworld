@@ -17,6 +17,12 @@ spring:
         file-size-threshold: 0
         max-file-size: 100Mb
         max-request-size: 200Mb
+  redis:
+    database: 0
+    host: 10.173.33.89
+    port: 6379
+    password: qazWSX1024
+    timeout:  2000
 #热重启
   devtools:
     restart:

@@ -2,12 +2,17 @@ package com.lyl.helloworld.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.lyl.helloworld.entity.Content;
+import com.lyl.helloworld.entity.User;
 import com.lyl.helloworld.mapper.DemoMapper;
+import com.lyl.helloworld.service.UserService;
 import com.lyl.helloworld.service.impl.IDemoService;
+import com.lyl.helloworld.service.impl.UserServiceImpl;
+import com.lyl.helloworld.util.RedisUtil;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +23,10 @@ public class DemoController {
     private final static Logger logger = LoggerFactory.getLogger(DemoController.class);
     @Autowired
     IDemoService demoService;
+
+
+
+
 
     @ApiOperation(value="获取新闻信息",notes="获取新闻信息")
     @GetMapping("/get")
@@ -30,4 +39,39 @@ public class DemoController {
     public String getNewslist(){
         return "123";
     }
+    @Autowired
+    private StringRedisTemplate template;
+
+    @RequestMapping("/setValue")
+    public String setValue(){
+        if(!template.hasKey("shabao")){
+            template.opsForValue().append("shabao", "我是你大爷");
+            return "使用redis缓存保存数据成功";
+        }else{
+            template.delete("shabao");
+            return "key已存在";
+}
+    }
+
+    @RequestMapping("/setValue1")
+    public boolean setValue1(){
+        return new RedisUtil().set("abc","我是你爸爸");
+    }
+    @RequestMapping("/getValue1")
+    public String getValue2(){
+        String a = (String) new RedisUtil().get("abc");
+        return a;
+    }
+
+    @RequestMapping("/getValue")
+    public String getValue(){
+
+        if(!template.hasKey("shabao")){
+            return "key不存在，请先保存数据";
+        }else{
+            String shabao = template.opsForValue().get("shabao");//根据key获取缓存中的val
+            return "获取到缓存中的数据：shabao="+shabao;
+        }
+    }
+
 }
