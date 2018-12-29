@@ -19,9 +19,9 @@ spring:
         max-request-size: 200Mb
   redis:
     database: 0
-    host: 10.173.33.89
+    host: 59.111.88.206
     port: 6379
-    password: qazWSX1024
+#    password: qazWSX1024
     timeout:  2000
 #热重启
   devtools:
