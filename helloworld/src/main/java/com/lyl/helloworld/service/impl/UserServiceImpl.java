@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Override
-    @Cacheable(value="users", key="'user_'+#id")
+    @Cacheable(value="users2", key="'user_'+#id")
     public User getUser(String id) {
         System.out.println(id+"进入实现类获取数据！");
         User user = new User();

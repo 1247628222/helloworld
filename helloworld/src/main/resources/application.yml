@@ -1,14 +1,14 @@
 server:
   port: 8081
-
+  context-path : /lyl
 spring:
   application:
     name: service-news
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://59.111.90.201:3721/power_news?useSSL=true
-    username: power
-    password: Power123
+    url: jdbc:mysql://59.111.88.206:3721/power_news?useSSL=true
+    username: news
+    password: news123
   session:
     store-type: none
   servlet:
